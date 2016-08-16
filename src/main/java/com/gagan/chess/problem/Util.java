@@ -9,7 +9,7 @@ import com.gagan.chess.problem.types.Position;
 import java.util.Set;
 
 /**
- * Common utility methods for Tyro program
+ * Common utility methods for Chess program
  * @author gagssing
  */
 public class Util {

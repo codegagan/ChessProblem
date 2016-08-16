@@ -8,7 +8,7 @@ package com.gagan.chess.problem.types;
 import com.gagan.chess.problem.ChessBoard;
 
 /**
- * Provides the conversion between array index and tyro notations, represents the position of Piece
+ * Provides the conversion between array index and Chess problem notations, represents the position of Piece
  * @author gagssing
  */
 public class Position implements Comparable<Position>{
