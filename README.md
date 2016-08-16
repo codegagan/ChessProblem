@@ -1,3 +1,3 @@
 # ChessProblem
 
-[Problem desciption](http://google.com)
+[Problem desciption](https://github.com/codegagan/ChessProblem/blob/master/problem.txt)
