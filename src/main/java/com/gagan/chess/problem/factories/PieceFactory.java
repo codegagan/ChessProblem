@@ -7,6 +7,7 @@ package com.gagan.chess.problem.factories;
 
 import com.gagan.chess.problem.Color;
 import com.gagan.chess.problem.Piece;
+import com.gagan.chess.problem.Type;
 import com.gagan.chess.problem.piecetypes.Bishop;
 import com.gagan.chess.problem.piecetypes.Knight;
 import com.gagan.chess.problem.piecetypes.Pawn;
@@ -30,16 +31,16 @@ public class PieceFactory {
  * @param position string notation of position
  * @return Piece object, actually the concrete subtype of Piece
  */
-    public static Piece getPiece(String color, String type, String position) {
+    public static Piece getPiece(Color color, Type type, String position) {
         Piece piece = null;
-        switch (type.charAt(0)) {// Check the type, accordingly create the subtype objects.
-            case 'B':
+        switch (type) {// Check the type, accordingly create the subtype objects.
+            case BISHOP:
                 piece = new Bishop();
                 break;
-            case 'N':
+            case KNIGHT:
                 piece = new Knight();
                 break;
-            case 'P':
+            case PAWN:
                 piece = new Pawn();
                 break;
             default:
@@ -48,11 +49,7 @@ public class PieceFactory {
 
         final Position pos = new Position(position);
         piece.setPosition(pos);
-        if ("W".equals(color)) {
-            piece.setColor(Color.WHITE);
-        } else { // Other value is obviously B as previously checked.
-            piece.setColor(Color.BLACK);
-        }
+        piece.setColor(color);
         return piece;
     }
 

@@ -6,7 +6,9 @@
 package com.gagan.chess;
 
 import com.gagan.chess.problem.ChessBoard;
+import com.gagan.chess.problem.Color;
 import com.gagan.chess.problem.Piece;
+import com.gagan.chess.problem.Type;
 import com.gagan.chess.problem.Util;
 import com.gagan.chess.problem.factories.PieceFactory;
 import com.gagan.chess.problem.types.Position;
@@ -39,9 +41,9 @@ public class FindValidMoves {
             while (i <= piecesNo) {
                 System.out.println("Piece " + i);
                 System.out.print("Enter colour (W/B): ");
-                String color = input.next().toUpperCase(); // Lets keep everything in upper to avoid equals ignorecase later
+                String colorAsString = input.next().toUpperCase();
                 System.out.print("Enter type (B/N/P): ");
-                String type = input.next().toUpperCase();
+                String typeAsString = input.next().toUpperCase();
                 System.out.print("Enter position: ");
                 String position = input.next();
                 Position pos = new Position(position);
@@ -49,6 +51,11 @@ public class FindValidMoves {
                 System.out.println(newLine);
 
                 // Input Validations
+                Type type
+            		= "B".equals(typeAsString) ? Type.BISHOP
+            		: "N".equals(typeAsString) ? Type.KNIGHT
+            		: "P".equals(typeAsString) ? Type.PAWN
+            		: null;
                 if ("P".equals(type) && (pos.getRowIndex() == 0 || pos.getRowIndex() == 7)) {
                     System.out.println("Pawns may not be placed on the first or last ranks.  Please re-enter." + newLine);
                     continue;
@@ -57,11 +64,15 @@ public class FindValidMoves {
                     System.out.println("Invalid position, Please reenter the values for this Piece" + newLine);
                     continue;
                 }
-                if (color.length() != 1 || (!"WB".contains(color))) { // color should only be among WB
-                    System.out.println("Invalid Color value, Please reenter the values for this Piece" + newLine);
-                    continue;
+                Color color 
+            		= "W".equals(colorAsString) ? Color.WHITE
+            		: "B".equals(colorAsString) ? Color.BLACK
+            		: null;
+                if (color==null){
+                	System.out.println("Invalid Color value, Please reenter the values for this Piece" + newLine);
+                	continue;
                 }
-                if (type.length() != 1 || (!"BNP".contains(type))) {
+                if (type==null) {
                     System.out.println("Invalid Type value, Please reenter the values for this Piece" + newLine);
                     continue;
                 }
