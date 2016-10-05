@@ -8,6 +8,7 @@ package com.gagan.chess.problem.factories;
 import com.gagan.chess.problem.factories.PieceFactory;
 import com.gagan.chess.problem.Color;
 import com.gagan.chess.problem.Piece;
+import com.gagan.chess.problem.Type;
 import com.gagan.chess.problem.piecetypes.Pawn;
 import com.gagan.chess.problem.types.Position;
 import org.junit.After;
@@ -48,8 +49,8 @@ public class PieceFactoryTest {
     @Test
     public void testGetPiece() {
         System.out.println("getPiece");
-        String color = "W";
-        String type = "P";
+        Color color = Color.WHITE;
+        Type type = Type.PAWN;
         String position = "c3";
         Piece expResult = new Pawn();
         expResult.setColor(Color.WHITE);

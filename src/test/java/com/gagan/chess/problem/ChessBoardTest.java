@@ -47,7 +47,7 @@ public class ChessBoardTest {
     @org.junit.Test
     public void testAdd() {
         System.out.println("add");
-        Piece piece = PieceFactory.getPiece("W", "B", "f8");
+        Piece piece = PieceFactory.getPiece(Color.WHITE, Type.BISHOP, "f8");
         ChessBoard instance = new ChessBoard();
         instance.add(piece);
         
